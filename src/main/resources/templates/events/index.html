@@ -5,7 +5,7 @@
 
     <h1>All Events</h1>
 
-    <nav th:replace="fragments :: navigation"></nav>
+    <nav   th:replace="fragments :: navigation"></nav>
 
 
     <p th:unless="${events} and ${events.size()}">No events!</p>
@@ -14,11 +14,18 @@
     <table class="table table-striped">
         <thead>
           <tr>
+              <th>ID</th>
              <th>Name</th>
+              <th>Contact Email</th>
+              <th>Type</th>
+
           </tr>
         </thead>
         <tr th:each="event : ${events}">
+            <td th:text="${event.id}"></td>
             <td th:text="${event.name}"></td>
+            <td th:text="${event.contactEmail}"></td>
+            <td th:text="${event.type.displayName}"></td>
         </tr>
     </table>
 
